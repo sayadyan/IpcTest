@@ -69,8 +69,8 @@ double CloudIntegrand::readResult()
 
     // profiling
     gettimeofday(&mTimeEnd, NULL);
-    mIpcTime = mIpcTime + ((mTimeEnd.tv_sec * 1000 + mTimeEnd.tv_usec / 1000
-            - mTimeStart.tv_sec * 1000 - mTimeStart.tv_usec / 1000
+    mIpcTime = mIpcTime + ((mTimeEnd.tv_sec * 1000000 + mTimeEnd.tv_usec
+            - mTimeStart.tv_sec * 1000000 - mTimeStart.tv_usec
             - timeJava));
     return res;
 }

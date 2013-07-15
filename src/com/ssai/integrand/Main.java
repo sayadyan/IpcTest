@@ -38,7 +38,7 @@ public class Main {
 			try {
 				// read dim
 				messenger.readFifoMessage(messegeLength, FifoIPCMessenger.MESSAGE_LENGTH_SIZE);
-				long startTime = System.currentTimeMillis(); // profiling
+				long startTime = System.nanoTime(); // profiling
 				int dim = (int) byteToDouble(messegeLength);
 				
 				// read params
@@ -50,8 +50,8 @@ public class Main {
 				double result = integrated(doubles, dim);
 				ByteBuffer returnArray = ByteBuffer.wrap(returnMessege);
 				returnArray.putDouble(result);
-				long endTime = System.currentTimeMillis(); // profiling
-				returnArray.putDouble((double)(endTime - startTime)); // profiling
+				long endTime = System.nanoTime(); // profiling
+				returnArray.putDouble((endTime - startTime)/1000); // profiling
 				
 				// write message
 				//System.out.println("Result = " + result);

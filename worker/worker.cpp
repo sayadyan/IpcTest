@@ -12,7 +12,7 @@ void Worker::run()
     int numOfCalls = 200000;
     Integration* integration = new Integration(numOfCalls, lower, upper, new CloudIntegrand(dim));
     double result = integration->integrate();
-    std::cout << "Average time = " << (float)integration->getIpcTime() << " ms - "
+    std::cout << "Average time = " << integration->getIpcTime() << " mks - "
               << numOfCalls << " iterations" << std::endl;
     delete integration;
 
