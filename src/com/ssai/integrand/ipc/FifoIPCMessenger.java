@@ -56,6 +56,9 @@ public class FifoIPCMessenger implements IIPCMessenger {
 		int read = 0;
 		while (true) {
 			read = inputFifo.read(buffer, count, len - count);
+			if (read == -1) {
+				throw new IOException();
+			}
 			count += read;
 			if (count >= len) {
 				break;

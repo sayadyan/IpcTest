@@ -11,8 +11,8 @@ FifoIPCMessenger::FifoIPCMessenger(const char *inputFifoName, const char *output
 
 FifoIPCMessenger::~FifoIPCMessenger()
 {
-    unlink(mInputFifoName);
-    unlink(mOutputFifoName);
+    //unlink(mInputFifoName);
+    //unlink(mOutputFifoName);
     free(mInputFifoName);
     free(mOutputFifoName);
 }
